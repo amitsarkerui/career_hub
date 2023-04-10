@@ -40,7 +40,47 @@ const JobsDetails = () => {
             <p className="font-bold mt-8">Experiences::</p>
             <p>{singleJobs.experience}</p>
           </div>
-          <div className="col-span-2"></div>
+          <div className="col-span-2">
+            <div className="bg-purple-100 p-8 rounded-lg">
+              <h3 className="text-xl font-bold">Job Details:</h3>
+              <hr className="border border-purple-200 my-5" />
+              <div className="flex gap-2 items-center">
+                <img src="../../../public/icons/doller.png" alt="" />
+                <p>
+                  <span className="font-bold">Salary :</span>{" "}
+                  {singleJobs.salary} (Per Month)
+                </p>
+              </div>
+              <div className="flex gap-2 items-center mt-4">
+                <img src="../../../public/icons/calender.png" alt="" />
+                <p>
+                  <span className="font-bold">Job Title :</span>{" "}
+                  {singleJobs.jobTitle}
+                </p>
+              </div>
+              <h3 className="text-xl font-bold mt-10">Contact Information :</h3>
+              <hr className="border border-purple-200 my-5" />
+              <div className="flex gap-2 items-center">
+                <img src="../../../public/icons/call.png" alt="" />
+                <p>
+                  <span className="font-bold">Phone :</span> {singleJobs.phone}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center my-4">
+                <img src="../../../public/icons/mail.png" alt="" />
+                <p>
+                  <span className="font-bold">Email :</span> {singleJobs.email}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img src="../../../public/icons/location.png" alt="" />
+                <p>
+                  <span className="font-bold">Address :</span>{" "}
+                  {singleJobs.address}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

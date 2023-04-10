@@ -9,13 +9,13 @@
     "id": "02",
     "categoryIcon": "./icon_images/creative.png",
     "categoryName": "Creative Design",
-    "availableJob:": "200 Jobs Available"
+    "availableJobs": "200 Jobs Available"
   },
   {
     "id": "03",
     "categoryIcon": "./icon_images/marketing.png",
     "categoryName": "Sales & Marketing",
-    "availableJobs": "186Jobs Available"
+    "availableJobs": "186 Jobs Available"
   },
   {
     "id": "04",

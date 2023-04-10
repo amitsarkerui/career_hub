@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SingleJobs = ({ singleJobs }) => {
   const {
@@ -67,7 +68,7 @@ const SingleJobs = ({ singleJobs }) => {
       </div>
       <div>
         <button className="mt-6 bg-purple-500 py-2 px-4 rounded-md text-lg text-white hover:bg-blue-500">
-          View Details
+          <Link to={"/jobsDetails"}>View Details</Link>
         </button>
       </div>
     </div>

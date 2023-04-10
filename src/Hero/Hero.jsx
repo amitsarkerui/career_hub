@@ -3,10 +3,15 @@ import React from "react";
 const Hero = () => {
   return (
     <div style={{ backgroundColor: "#F9F9FF" }}>
-      <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
+      <div className="container mx-auto flex flex-col items-center justify-between md:flex-row pt-7">
         <div>
-          <h1>One Step Closer To Your Dream Job</h1>
-          <p>
+          <h1 className="text-6xl font-bold leading-snug mb-5">
+            One Step
+            <br /> Closer To Your
+            <br />
+            <span className="text-purple-500">Dream Job</span>
+          </h1>
+          <p className="w-3/4 mb-5">
             Explore thousands of job opportunities with all the information you
             need. Its your future. Come find it. Manage all your job application
             from start to finish.

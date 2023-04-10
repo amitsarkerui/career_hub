@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <div style={{ backgroundColor: "#F9F9FF" }}>
-      <div className="container mx-auto flex flex-col items-center justify-between md:flex-row pt-7">
+      <div className="container mx-auto flex flex-col items-center justify-between md:flex-row pt-3">
         <div>
           <h1 className="text-6xl font-bold leading-snug mb-5">
             One Step

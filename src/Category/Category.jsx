@@ -14,7 +14,7 @@ const Category = () => {
   return (
     <div className="container mx-auto px-4 my-24">
       <div className="text-center mb-10">
-        <h1 className="text-5xl font-bold mb-5">Job Category List</h1>
+        <h1 className="text-4xl font-bold mb-5">Job Category List</h1>
         <p>
           Explore thousands of job opportunities with all the information you
           need. Its your future

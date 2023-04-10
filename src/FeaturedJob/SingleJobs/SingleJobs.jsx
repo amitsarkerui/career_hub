@@ -68,7 +68,7 @@ const SingleJobs = ({ singleJobs }) => {
       </div>
       <div>
         <button className="mt-6 bg-purple-500 py-2 px-4 rounded-md text-lg text-white hover:bg-blue-500">
-          <Link to={"/jobsDetails"}>View Details</Link>
+          <Link to={`/jobsDetails/${id}`}>View Details</Link>
         </button>
       </div>
     </div>

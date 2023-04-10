@@ -6,6 +6,7 @@ import Home from "./Home/Home";
 import Hero from "./Hero/Hero";
 import Category from "./Category/Category";
 import Root from "./Root/Root";
+import JobsDetails from "./FeaturedJob/JobsDetails/JobsDetails";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/jobsDetails/:id",
+        element: <JobsDetails></JobsDetails>,
+        loader: () => fetch("/public/jobs.json"),
       },
     ],
   },

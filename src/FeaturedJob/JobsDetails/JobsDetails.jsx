@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import { addToDb, getShoppingCart } from "../../utilites/fakeDB";
 
 const JobsDetails = () => {
   let clickedId = useParams();
@@ -16,6 +17,10 @@ const JobsDetails = () => {
       setSingleJobs(singleData);
     }
   }, []);
+  const addToLocalStorage = (id) => {
+    addToDb(id);
+  };
+
   return (
     <div>
       <h1
@@ -80,6 +85,12 @@ const JobsDetails = () => {
                 </p>
               </div>
             </div>
+            <button
+              onClick={() => addToLocalStorage(singleJobs.id)}
+              className=" bg-purple-500 w-full py-3 rounded-md mt-6 text-white hover:bg-blue-500"
+            >
+              Apply Now
+            </button>
           </div>
         </div>
       </div>

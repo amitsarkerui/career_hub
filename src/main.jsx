@@ -7,6 +7,7 @@ import Hero from "./Hero/Hero";
 import Category from "./Category/Category";
 import Root from "./Root/Root";
 import JobsDetails from "./FeaturedJob/JobsDetails/JobsDetails";
+import AppliedJobs from "./AppliedJobs.jsx/AppliedJobs";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,12 @@ const router = createBrowserRouter([
       {
         path: "/jobsDetails/:id",
         element: <JobsDetails></JobsDetails>,
-        loader: () => fetch("/public/jobs.json"),
+        loader: () => fetch("/jobs.json"),
+      },
+      {
+        path: "/applied",
+        element: <AppliedJobs></AppliedJobs>,
+        loader: () => fetch("/jobs.json"),
       },
     ],
   },

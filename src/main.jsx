@@ -8,6 +8,7 @@ import Category from "./Category/Category";
 import Root from "./Root/Root";
 import JobsDetails from "./FeaturedJob/JobsDetails/JobsDetails";
 import AppliedJobs from "./AppliedJobs.jsx/AppliedJobs";
+import NotFoundPage from "./NotFoundPage/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         loader: () => fetch("/jobs.json"),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage></NotFoundPage>,
   },
 ]);
 

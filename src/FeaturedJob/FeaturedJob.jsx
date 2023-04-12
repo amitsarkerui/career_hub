@@ -10,9 +10,30 @@ const FeaturedJob = () => {
       .then((res) => res.json())
       .then((data) => dataSlice(data));
   }, []);
+
   const handleSeeAll = () => {
     setJobs(allJobs);
   };
+  let hiddenBtn;
+  if (allJobs.length === jobs.length) {
+    hiddenBtn = (
+      <button
+        onClick={handleSeeAll}
+        className=" bg-purple-500 py-3 px-6 rounded-md text-lg font-medium text-white hover:bg-blue-500 my-10 hidden"
+      >
+        See All Jobs
+      </button>
+    );
+  } else {
+    hiddenBtn = (
+      <button
+        onClick={handleSeeAll}
+        className=" bg-purple-500 py-3 px-6 rounded-md text-lg font-medium text-white hover:bg-blue-500 my-10"
+      >
+        See All Jobs
+      </button>
+    );
+  }
   const dataSlice = (data) => {
     setAllJobs(data);
     const sliceData = data.slice(0, 4);
@@ -34,12 +55,13 @@ const FeaturedJob = () => {
         ))}
       </div>
       <div className="w-full text-center">
-        <button
+        {hiddenBtn}
+        {/* <button
           onClick={handleSeeAll}
           className=" bg-purple-500 py-3 px-6 rounded-md text-lg font-medium text-white hover:bg-blue-500 my-10"
         >
           See All Jobs
-        </button>
+        </button> */}
       </div>
     </div>
   );

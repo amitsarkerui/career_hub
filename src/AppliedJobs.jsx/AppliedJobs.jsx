@@ -5,9 +5,10 @@ import SingleAppliedJobs from "./SingleAppliedJobs/SingleAppliedJobs";
 
 const AppliedJobs = () => {
   const [applied, setApplied] = useState([]);
-  // console.log("----->7 line", applied);
+  const [filterData, setFilterData] = useState(applied);
   const appliedJobsId = getShoppingCart();
   const allJobs = useLoaderData();
+
   useEffect(() => {
     let appliedJobs = [];
     for (const id in appliedJobsId) {
@@ -18,19 +19,25 @@ const AppliedJobs = () => {
       }
     }
   }, [allJobs]);
+
+  useEffect(() => {
+    setFilterData(applied);
+  }, [applied]);
+
   const handlerOnsite = () => {
     const onsiteJobs = applied.filter(
       (singleJob) => singleJob.jobtype === "Onsite"
     );
-    setApplied(onsiteJobs);
+    setFilterData(onsiteJobs);
   };
+
   const handlerRemote = () => {
-    const RemoteJobs = applied.filter(
+    const remoteJobs = applied.filter(
       (singleJob) => singleJob.jobtype === "Remote"
     );
-    // console.log("----->23 onsite", onsiteJobs);
-    setApplied(RemoteJobs);
+    setFilterData(remoteJobs);
   };
+
   return (
     <div>
       <h1
@@ -55,7 +62,7 @@ const AppliedJobs = () => {
           </button>
         </div>
         <div>
-          {applied.map((singleJob) => (
+          {filterData.map((singleJob) => (
             <SingleAppliedJobs
               key={singleJob.id}
               singleJob={singleJob}

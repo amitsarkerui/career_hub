@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { addToDb, getShoppingCart } from "../../utilites/fakeDB";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const JobsDetails = () => {
   let clickedId = useParams();
   let jobsDetails = useLoaderData();
-  //   console.log("From Details---->", clickedId);
-  //   console.log("From Details loader data---->", jobsDetails);
+  let storedJobs = getShoppingCart();
   const [singleJobs, setSingleJobs] = useState({});
-  //   console.log("From Details find data---->", singleJobs);
+  console.log("singleJobs 10line---->", singleJobs);
+  const [matchLocalStorage, setMatchLocalStorage] = useState([]);
+  console.log("From Details find matchLocalStorage---->", matchLocalStorage);
+  // Find Clicked Job data
   useEffect(() => {
     const singleData = jobsDetails.find(
       (singleJob) => singleJob.id === clickedId.id
@@ -18,9 +22,45 @@ const JobsDetails = () => {
     }
   }, []);
   const addToLocalStorage = (id) => {
+    toast.success("Applied Successfully");
     addToDb(id);
+    setInterval(() => {
+      window.location.reload();
+    }, 5500);
   };
-
+  // Filter from local storage
+  useEffect(() => {
+    const matchJob = [];
+    for (const id in storedJobs) {
+      const findJobs = jobsDetails.find((singleJob) => singleJob.id === id);
+      matchJob.push(findJobs);
+    }
+    setMatchLocalStorage(matchJob);
+    // console.log("From Details find findJobs---->", matchJob);
+  }, []);
+  // Find with clicked match data
+  let appliedJobs;
+  let appliedJobsBtn;
+  appliedJobs = matchLocalStorage.find((sj) => sj?.id === singleJobs.id);
+  if (appliedJobs) {
+    appliedJobsBtn = (
+      <button
+        className=" bg-gray-300 w-full py-3 rounded-md mt-6 text-gray-500"
+        disabled
+      >
+        Already Applied
+      </button>
+    );
+  } else {
+    appliedJobsBtn = (
+      <button
+        onClick={() => addToLocalStorage(singleJobs.id)}
+        className=" bg-purple-500 w-full py-3 rounded-md mt-6 text-white hover:bg-blue-500"
+      >
+        Apply Now
+      </button>
+    );
+  }
   return (
     <div>
       <h1
@@ -85,15 +125,28 @@ const JobsDetails = () => {
                 </p>
               </div>
             </div>
-            <button
+            {appliedJobsBtn}
+            {/* <button
               onClick={() => addToLocalStorage(singleJobs.id)}
               className=" bg-purple-500 w-full py-3 rounded-md mt-6 text-white hover:bg-blue-500"
             >
               Apply Now
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

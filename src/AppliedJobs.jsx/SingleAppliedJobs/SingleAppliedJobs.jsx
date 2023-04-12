@@ -5,8 +5,8 @@ const SingleAppliedJobs = ({ singleJob }) => {
   return (
     <div className="container mx-auto mt-10">
       <div className="mb-5 border border-gray-300 p-5 rounded-lg flex items-center gap-5">
-        <div className="h-48 w-48 bg-purple-100 rounded-md flex items-center justify-between ">
-          <img className="" src={singleJob.logo} alt="" />
+        <div className="h-48 w-48 bg-purple-100 rounded-md flex items-center justify-center ">
+          <img src={singleJob.logo} alt="" />
         </div>
         <div className="grow">
           <h2 className="text-xl font-bold mb-3 mt-6">{singleJob.jobTitle}</h2>

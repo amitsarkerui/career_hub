@@ -15,6 +15,9 @@ const Navbar = () => {
           <div className="my-3">
             <ul className="flex gap-8 text-lg font-medium text-gray-600">
               <li>
+                <ActiveLink to={"/"}>Home</ActiveLink>
+              </li>
+              <li>
                 <ActiveLink to={"/statistics"}>Statistics</ActiveLink>
               </li>
               <li>

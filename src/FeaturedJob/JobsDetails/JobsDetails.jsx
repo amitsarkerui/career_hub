@@ -48,7 +48,7 @@ const JobsDetails = () => {
         className=" bg-gray-300 w-full py-3 rounded-md mt-6 text-gray-500"
         disabled
       >
-        Already Applied
+        Applied
       </button>
     );
   } else {
